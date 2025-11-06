@@ -1,0 +1,35 @@
+"""
+URL configuration for core project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from chat import views as chat_views
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Chat Backend is running successfully ✅")
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home),
+    
+    path('api/conversations/new/', chat_views.NewMessageView.as_view()),
+    path('api/conversations/<uuid:id>/', chat_views.ConversationDetailView.as_view()),
+    path('api/conversations/<uuid:id>/end/', chat_views.EndConversationView.as_view()),
+    path('api/conversations/', chat_views.ConversationListView.as_view()),
+    path('api/ai/query-past/', chat_views.AIQueryPastView.as_view(), name='ai_query_past'),
+
+]
