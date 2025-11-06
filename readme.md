@@ -1,21 +1,6 @@
-Nice — I’ll produce a polished README and accompanying artifacts you can drop straight into your repo. It includes:
-
-* Setup instructions (backend + frontend)
-* OpenAPI integration instructions (DRF + drf-spectacular)
-* Sample conversation fixture and how to load it
-* `requirements.txt` (your packages + OpenAPI tool)
-* Sample AI-generated insights & example responses
-* Architecture diagram (Mermaid)
-* Notes on screenshots, coding style, OOP suggestions, and how to export API docs
-
-Copy the files/snippets below into your project.
-
----
-
-# README.md
+# Converse.ai — Chat + AI Insights (Backend + Frontend)
 
 ```
-# Converse.ai — Chat + AI Insights (Backend + Frontend)
 
 A full-stack chat application: React + Vite frontend styled with Tailwind CSS, and Django REST backend (PostgreSQL).  
 Features: Real-time-like chat flow (POST/GET endpoints), conversation history, conversation end + AI analysis hooks, intelligent query (search), export-ready backend, CORS enabled, and OpenAPI docs.
@@ -238,7 +223,7 @@ Conversation: Project Kickoff (id: 1111-2222)
 
 Paste this into `docs/architecture.md` or in a markdown-renderer that supports Mermaid:
 
-```mermaid
+```
 flowchart LR
   A[User (Frontend)] -->|POST message| B(React SPA)
   B -->|HTTP POST| C[Django REST API]
